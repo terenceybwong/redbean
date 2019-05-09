@@ -7,7 +7,7 @@ use \RedBeanPHP\ToolBox;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-const NUM_RECORDS = 10000;
+const NUM_RECORDS = 100000;
 const TABLE_NAME = 't';
 
 /**
@@ -107,6 +107,9 @@ function updateRowsByRedBean(array $data, bool $transaction = null, bool $freeze
     if ($freeze === true) {
         R::freeze();
     }
+    if ($transaction === true) {
+        R::begin();
+    }
 
     $id = 0;
     $ts = microtime(true);
@@ -121,7 +124,6 @@ function updateRowsByRedBean(array $data, bool $transaction = null, bool $freeze
     printf("===> Elapsed time (prepare rows): %s seconds\n", number_format($elapsed, 2));
 
     if ($transaction === true) {
-        R::begin();
         R::commit();
     }
     $total = microtime(true) - $ts;
