@@ -45,3 +45,13 @@ Updating 100,000 records by SQL in transaction
 ===> Elapsed time (commit): 0.00 seconds
 ===> Elapsed time (total): 7.79 seconds
 ```
+
+Running RedBean updates in transaction is slightly faster but
+generally negligible.
+
+Frozen RedBean schema seems to have significant improvement on
+performance. However, if is it only the table concerned which
+is frozen, the improvement is negligible.
+
+Updating using plain SQL is very fast, particularly when it
+is run in transaction.
