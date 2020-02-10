@@ -4,9 +4,9 @@ The benchmark is a rough test on the performance of RedBean against plain SQL st
 
 To run the benchmark, create database on MySQL 5.7.
 ```
-CREATE DATABASE redbean;
+CREATE DATABASE IF NOT EXISTS redbean;
 USE redbean;
-CREATE USER redbean IDENTIFIED BY 'redbean';
+CREATE USER IF NOT EXISTS redbean IDENTIFIED BY 'redbean';
 GRANT ALL ON redbean.* to redbean;
 FLUSH PRIVILEGES;
 ```

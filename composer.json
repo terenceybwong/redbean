@@ -1,5 +1,15 @@
 {
   "require": {
-    "gabordemooij/redbean": "^5.3"
+    "gabordemooij/redbean": "^5.3",
+    "symfony/console": "^4.4"
+  }
+  ,
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "AskNicely\\RedBean\\": "src/"
+    }
   }
 }
